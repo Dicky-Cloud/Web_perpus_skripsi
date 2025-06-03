@@ -38,7 +38,7 @@
     <h2 class="form-title">Form Daftar Hadir Pengunjung<br>Dinas Perpustakaan dan Kearsipan<br>Kabupaten Batang</h2>
 
     <!-- Form Pendaftaran Anggota -->
-    <form action="<?= base_url('anggota/tambah'); ?>" method="post" onsubmit="return showSuccessAlert()">
+    <form action="<?= base_url('Pendaftaran/tambah'); ?>" method="post" onsubmit="return showSuccessAlert()">
       <div class="mb-3">
         <label for="nama" class="form-label">Nama Lengkap</label>
         <input type="text" class="form-control" id="nama" name="nama" required>

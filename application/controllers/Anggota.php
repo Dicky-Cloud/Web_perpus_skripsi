@@ -5,8 +5,20 @@ class Anggota extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('DataModel'); // Memuat model DataModel untuk akses database
-        $this->load->library('form_validation'); // Memuat library form_validation untuk validasi input
+        $this->load->library('form_validation');
+         $this->load->helper('auth_helper');
+
+        // Panggil fungsi check_login untuk memastikan pengguna sudah login
+        check_login(); // Memuat library form_validation untuk validasi input
     }
+    function check_login() {
+    $ci = &get_instance(); // penting: referensi CI super object
+    if (!$ci->session->userdata('logged_in')) {
+        redirect('login/auth'); // pastikan ini mengarah ke controller login yang benar
+        exit; // penting: stop eksekusi
+    }
+}
+    
 
     public function index() {
         $data['anggota'] = $this->DataModel->get_all_anggota(); // Mengambil semua data anggota
@@ -122,4 +134,17 @@ public function tambah() {
     
         redirect('anggota'); // Arahkan kembali ke daftar anggota
     }
+    public function export_pdf() {
+    $this->load->library('pdf'); // Pastikan kamu sudah membuat atau memanggil library dompdf wrapper
+
+    $data['anggota'] = $this->DataModel->get_all_anggota();
+
+    $html = $this->load->view('pdf_anggota', $data, true);
+
+    $this->pdf->loadHtml($html);
+    $this->pdf->setPaper('A4', 'portrait');
+    $this->pdf->render();
+    $this->pdf->stream('data_anggota.pdf', array("Attachment" => false));
+}
+
 }

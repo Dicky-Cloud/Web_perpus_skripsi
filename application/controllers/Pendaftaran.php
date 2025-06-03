@@ -36,6 +36,6 @@ class Pendaftaran extends CI_Controller {
             $this->session->set_flashdata('success', 'Data pendaftaran berhasil ditambahkan.');
         }
 
-        redirect('pendaftaran');
+        redirect('Daftarbuku');
     }
 }

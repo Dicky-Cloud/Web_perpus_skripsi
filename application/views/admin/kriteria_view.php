@@ -72,11 +72,11 @@
                                 </nav>
                             </div>
 
-                            <div class="sb-sidenav-menu-heading">Data Transaksi</div>
+                            <div class="sb-sidenav-menu-heading">Data Laporan</div>
                             <!-- Data Anggota Section -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsetransaksi" aria-expanded="false" aria-controls="collapsetransaksi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-book-open"></i></div>
-                                Data Transaksi
+                                Data Laporan
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsetransaksi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">

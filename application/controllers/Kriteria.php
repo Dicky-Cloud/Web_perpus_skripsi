@@ -11,7 +11,13 @@ class Kriteria extends CI_Controller {
 			// Panggil fungsi check_login untuk memastikan pengguna sudah login
 			check_login();
     }
-
+ function check_login() {
+    $ci = &get_instance(); // penting: referensi CI super object
+    if (!$ci->session->userdata('logged_in')) {
+        redirect('login/auth'); // pastikan ini mengarah ke controller login yang benar
+        exit; // penting: stop eksekusi
+    }
+}
     public function index() {
         // Load semua data yang diperlukan
         $data['penilaian'] = $this->KriteriaModel->get_penilaian_with_kriteria();

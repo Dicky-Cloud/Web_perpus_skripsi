@@ -1,10 +1,12 @@
 <?php
-function check_login()
-{
-    $CI =& get_instance(); // Mendapatkan instance CodeIgniter
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-    if (!$CI->session->userdata('user_id')) {
-        // Jika pengguna belum login, redirect ke halaman login
-        redirect('auth');
+function check_login() {
+    $ci =& get_instance();
+    $ci->load->library('session'); // pastikan session diload
+
+    if (!$ci->session->userdata('logged_in')) {
+        redirect('auth'); // arahkan ke controller login kamu
+        exit; // sangat penting untuk menghentikan eksekusi
     }
 }

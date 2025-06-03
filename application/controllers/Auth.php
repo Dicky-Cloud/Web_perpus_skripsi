@@ -26,27 +26,23 @@ class Auth extends CI_Controller {
         // Ambil user berdasarkan username
         $user = $this->AuthModel->get_user_by_username($username);
 
-        if ($user) {
-            // Menggunakan MD5 untuk memverifikasi password
+      
             if (md5($password) === $user->password) {
-                // Jika password cocok, set session
-                $this->session->set_userdata('user_id', $user->id_login);
-                $this->session->set_userdata('username', $user->username);
-                
-                // Redirect ke halaman dashboard atau halaman tujuan
-                redirect('home');
-            } else {
+    // Jika password cocok, set session
+    $this->session->set_userdata([
+        'user_id'  => $user->id_login,
+        'username' => $user->username,
+        'logged_in' => TRUE // ✅ ini penting untuk fungsi check_login()
+    ]);
+
+    redirect('home');
+}
+else {
                 // Jika password salah, tampilkan pesan kesalahan
                 $this->session->set_flashdata('error', 'Username atau password salah');
                 redirect('auth');
             }
-        } else {
-            // Jika user tidak ditemukan
-            $this->session->set_flashdata('error', 'Username atau password salah');
-            redirect('auth');
-        }
-    }
-
+        } 
     public function logout()
     {
         // Menghancurkan session dan redirect ke halaman login

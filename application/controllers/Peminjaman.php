@@ -12,7 +12,13 @@ class Peminjaman extends CI_Controller {
         // Panggil fungsi check_login untuk memastikan pengguna sudah login
         check_login(); // Memuat library form validation
     }
-
+ function check_login() {
+    $ci = &get_instance(); // penting: referensi CI super object
+    if (!$ci->session->userdata('logged_in')) {
+        redirect('login/auth'); // pastikan ini mengarah ke controller login yang benar
+        exit; // penting: stop eksekusi
+    }
+}
     // Menampilkan daftar peminjaman
     public function index() {
          $data['peminjaman'] = $this->PinjamModel->get_all_pinjam();

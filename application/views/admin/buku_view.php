@@ -71,11 +71,11 @@
                                 </nav>
                             </div>
 
-                            <div class="sb-sidenav-menu-heading">Data Transaksi</div>
+                            <div class="sb-sidenav-menu-heading">Data Laporan</div>
                             <!-- Data Anggota Section -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsetransaksi" aria-expanded="false" aria-controls="collapsetransaksi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-book-open"></i></div>
-                                Data Transaksi
+                                Data Laporan
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsetransaksi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -118,7 +118,7 @@
             <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Books List</h1>
+            <h1 class="mt-4">Daftar Buku</h1>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
@@ -137,7 +137,7 @@
                                 <th>kategori</th>
                                 <th>Stok</th>
                                 <th>Halaman</th>
-                                <th>Deskripsi</th>
+                              <!--  <th>Deskripsi</th> -->
                                 <th>Aksi</th> <!-- Kolom untuk aksi edit dan delete -->
                             </tr>
                         </thead>
@@ -161,7 +161,7 @@
             <td><?= isset($buku_item['kategori']) ? $buku_item['kategori'] : '-'; ?></td>
             <td><?= isset($buku_item['stok']) ? $buku_item['stok'] : '-'; ?></td>
             <td><?= isset($buku_item['jml_halaman']) ? $buku_item['jml_halaman'] : '-'; ?></td>
-            <td><?= isset($buku_item['deskripsi']) ? $buku_item['deskripsi'] : '-'; ?></td>
+           <!-- <td><?= isset($buku_item['deskripsi']) ? $buku_item['deskripsi'] : '-'; ?></td> -->
             <td>
                 <!-- Tombol Edit yang memanggil modal -->
                 <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editModal<?= $buku_item['id_buku']; ?>">

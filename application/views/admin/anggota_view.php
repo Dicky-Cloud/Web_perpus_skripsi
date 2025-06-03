@@ -72,11 +72,11 @@
                                 </nav>
                             </div>
 
-                            <div class="sb-sidenav-menu-heading">Data Transaksi</div>
+                            <div class="sb-sidenav-menu-heading">Data Laporan</div>
                             <!-- Data Anggota Section -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsetransaksi" aria-expanded="false" aria-controls="collapsetransaksi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-book-open"></i></div>
-                                Data Transaksi
+                                Data Laporan
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsetransaksi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -122,7 +122,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Form data anggota
+                    Form data pengunjung
                 </div>
                 <div class="card-body">
                     <!-- Notifikasi -->
@@ -137,7 +137,10 @@
                             <?= $this->session->flashdata('error'); ?>
                         </div>
                     <?php endif; ?>
-              
+              <a href="<?= base_url('anggota/export_pdf'); ?>" class="btn btn-danger" target="_blank">
+    Export PDF
+</a>
+
                     <table id="datatablesSimple" class="display">
                         <thead>
                             <tr>
